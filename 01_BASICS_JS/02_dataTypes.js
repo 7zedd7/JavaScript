@@ -82,3 +82,8 @@ let object = {
 // Array => Arrays are ordered lists of values.
 
 let array = [1, 2, 3, 4, 5];
+
+/* visit this link for more info about Data Types and Values
+   link:-(https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html)
+   (ECMAScript Data Types and Values)
+*/
