@@ -37,8 +37,8 @@ let booleanIsLoggedIn = Boolean(isLoggedIn) //converting data into boolean
 let someNumber = 33
 
 let stringNumber = String(someNumber) //converting data into string
-console.log(typeof stringNumber); //rerturn DataType
-console.log(stringNumber); //return value
+//console.log(typeof stringNumber); //rerturn DataType
+//console.log(stringNumber); //return value
 
 /*  Convert data of different data types into boolean and return the resulting data
 
@@ -48,3 +48,50 @@ console.log(stringNumber); //return value
 
 */
 
+// *********************** Operations ***********************
+
+let value =3 
+let negValue = -value
+//console.log(negValue);
+
+/* Basi operations
+
+    console.log(2+2);  
+    console.log(2-2);
+    console.log(2*2);
+    console.log(2**3);  power
+    console.log(2/3);
+    console.log(2%3);   remainder
+
+*/
+
+let str1 = "Hello"
+let str2 = " Zeel"
+
+let str3 = str1 + str2
+//console.log(str3);
+
+// console.log("1" + 2);
+// console.log(1+"2");
+// console.log("1"+ 2 + 2);
+// console.log(1 + 2 + "2");
+
+// 
+// console.log(+true);
+// console.log(+"");
+
+let num1, num2 , num3
+
+num1 = num2 = num3 = 2 + 2
+
+let gameCounter = 100
+++gameCounter;
+console.log(gameCounter);
+// gameCounter++;
+// console.log(gameCounter);
+
+/* more about Type Conversion in below link
+
+    https://tc39.es/ecma262/multipage/abstract-operations.html
+
+*/
