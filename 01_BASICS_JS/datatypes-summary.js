@@ -56,3 +56,9 @@ JavaScript data types and their corresponding return types
        Function  =>  function
        Object  =>  object
 */
+
+/*  More about DataTypes in below Link
+
+    https://262.ecma-international.org/5.1/#sec-11.4.3
+
+*/ 
