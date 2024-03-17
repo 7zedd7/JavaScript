@@ -25,3 +25,17 @@ for(const obj of objectArray){
     // console.log(obj);
 }
 
+const myObject = {
+    game1: 'NFS',
+    game2: 'Fortnite'
+}
+
+for(const[key,value] of myObject) {
+    // console.log(key, ":-", value); // this will throw error because object is not iterable 
+}
+//for...of loop, which is not valid for objects in JavaScript.
+
+/*
+    The for...of loop is designed to iterate over iterable objects like arrays, strings, maps, and sets. However, regular JavaScript objects (like myObject in your example) are not iterable by default.
+*/
+
