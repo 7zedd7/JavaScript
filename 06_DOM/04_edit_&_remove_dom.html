@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit DOM || Remove DOM</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+
+    // innerHTML is used to add text to an element
+    // It is pessimistic way to add text to an element
+    function addLanguage(langName) {
+        const li =document.createElement('li') // create li element
+        li.innerHTML = `${langName}` // add text to li  
+        document.querySelector('.language').appendChild(li) // add li to ul
+    } // add language
+
+    addLanguage('Ruby')
+    addLanguage('Python')
+
+    // createTextNode is used to add text to an element 
+    // It is optimized way to add text to an element
+    function addOptimizedLanguage(langName) {
+        const li = document.createElement('li') // create li element
+        li.appendChild(document.createTextNode(langName)) // create text node and add to li
+        document.querySelector('.language').appendChild(li) // add li to ul
+    }
+
+    addOptimizedLanguage('C')
+    addOptimizedLanguage('PHP')
+    addOptimizedLanguage('Rust')
+
+    // Edit DOM 1
+    const secondLang = document.querySelector('li:nth-child(2)')
+    console.log(secondLang);
+    // secondLang.innerHTML = 'Java' // change text (not recommended)
+    const newli  = document.createElement('li') // create li element
+    newli.textContent = "Mojo" // add text to li
+    secondLang.replaceWith(newli) // replace li with newli (replacewith is used to replace an element with another element)
+
+    //Edit DOM 2
+    const firstChild = document.querySelector('li:first-child') // get last child
+    firstChild.outerHTML = '<li>TypeScript</li>' // change text (easiest way)
+
+    // Remove DOM
+    const lastChild = document.querySelector('li:last-child') // get last child
+    lastChild.remove() // remove last child
+</script>
+</html>
