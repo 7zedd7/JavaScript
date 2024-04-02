@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body style="background-color: #212121; color: white;">
+
+</body>
+<script>
+    const div = document.createElement('h1'); // create an element
+
+    console.log(div);
+
+    div.id = Math.round(Math.random() * 10 + 1) // add id
+
+    div.className = "main heading" // add class
+
+    div.setAttribute("title", "My Heading") // add attribute
+
+    div.style.backgroundColor = "red" // add style
+    div.style.padding = "20px"
+    div.style.borderRadius = "10px"
+
+    // div.innerHTML = "Hello World" // add text
+
+    const addText = document.createTextNode("bye bye Wolrd") // add text
+
+    div.appendChild(addText)
+    // console.log(div);
+
+    document.body.appendChild(div) //  add element in body of the document html page
+
+
+
+
+    // why document.createTextNode() is preferred over .innerText to add text in JavaScrip
+
+    /*
+        Security: .innerText can potentially allow injection of malicious code into a webpage as it parses HTML tags, while document.createTextNode() escapes HTML tags, making it more secure.
+
+        Performance: document.createTextNode() is generally faster since it doesn't need to parse HTML tags like .innerText does.
+
+        Compatibility: document.createTextNode() is supported by all major browsers, ensuring broader compatibility compared to .innerText, which may not be supported by all browsers.
+
+        Control: document.createTextNode() provides more control over the text added, including special characters, whereas .innerText removes special characters.
+    */
+</script>
+
+</html>
