@@ -71,3 +71,17 @@ form.addEventListener('submit', function (e) {
 });
 
 ```
+
+## Project 3
+
+```Javascript
+const clock = document.getElementById('clock');
+// const clock = document.querySelector('#clock'); another way to get clock id
+
+setInterval(function () {
+  let date = new Date();
+  // console.log(date.toLocaleTimeString());
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
+
+```
