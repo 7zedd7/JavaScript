@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #414141;
+            color: aliceblue;
+        }
+
+        img {
+            width: 250px;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            grid: 150px / auto auto auto auto auto;
+        }
+
+        a {
+            color: aliceblue;
+            font-size: 35px;
+        }
+
+        .google-site {
+            margin-top: 200px;
+        }
+    </style>
+    <title>Event</title>
+</head>
+
+<body>
+    <h2>Unique Image</h2>
+    <div>
+        <ul id="images">
+            <li><img id="sourse" src="images/Soursejpeg.jpeg" alt="sourse"></li>
+            <li><img id="gorillaphant" src="images/gorillaphant.jpg" alt="gorillaphant"></li>
+            <li><img id="rockchik" src="images/rockchik.jpg" alt="rockchik"></li>
+            <li><img id="catmonkey" src="images/catmonkey.jpg" alt="catmonkey"></li>
+            <li><img id="dogvin" src="images/dogvin.png" alt="Dovin"></li>
+            <li class="google-site"><a href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('sourse').onclick = function(){
+    //     alert(`You Touched Sourse Image`);
+    // }  
+
+    /*
+        We Should not use onlick property in javascript. There few Reasons for that.
+        i)It can decrease the readability of your code.
+        ii)It can create global functions that can pollute the global namespace.
+        iii)It can affect the performance of your program.
+    */
+
+    // attachEvent() :  It is an Internet Explorer-specific method that was used to attach event handlers to elements. It has been deprecated in favor of the addEventListener() method, which is supported by all modern browsers.
+
+    // jQuery - on : jQuery, you can use the on() method to attach event handlers to elements. The on() method takes two arguments: the event type and the handler function.
+
+    //-----------------------------------------------------------------Events Property----------------------------------------------------------------------------
+    // 1) Type : The type of event that occurred. For example, click, mouseover, or keydown. [The type read-only property of the Event interface returns a string containing the event's type. It is set when the event is constructed and is the name commonly used to refer to the specific event, such as click, load, or error.]
+
+    // 2) timestamp: The time at which the event occurred, in milliseconds since the Unix epoch. [In JavaScript, a timestamp is a numeric representation of the current time. It is a unique identifier that marks the exact moment when an event occurred or when a certain action was performed. This timestamp is useful in various applications such as logging, debugging, or measuring time intervals.]
+
+    // 3) defaultPrevented: It read-only property of the Event interface returns a boolean value indicating whether or not the call to Event.preventDefault() canceled the event.
+
+    // 4) target: The target property returns the element where the event occurred. The target property is read-only. The target property returns the element on which the event occurred, opposed to the currentTarget property, which returns the element whose event listener triggered the event.
+
+    // 5) toElement: The toElement property in JavaScript is used to determine which element the mouse is now pointing at. It is a read-only property that is available on all mouse events. The toElement property is different from the target property, which returns the element where the event occurred.
+
+    // 6) srcElement: [ This feature is no longer recommended.] 
+
+    // 7) currentTarget: The currentTarget property in JavaScript returns the element to which the event listener has been attached. This is not always the same as the element on which the event was fired. The element on which the event was fired is given by Event.target.  
+
+    // 8) clientX: The clientX property returns the horizontal client coordinate of the mouse pointer when a mouse event occurs.The clientX property is read-only.The client area is the current window.
+
+    // 9) clientY: The clientY property returns the vertical client coordinate of the mouse pointer when a mouse event occurs.The clientY property is read-only.The client area is the current window.
+
+    // 10) screenX: The screenX property returns the horizontal screen coordinate of the mouse pointer when a mouse event is triggered.The screenX property is read-only.
+
+    // 11) screenY: The screenY property in JavaScript is a read-only property that returns the vertical coordinate of the mouse pointer relative to the top of the screen, in CSS pixels. It is a member of the MouseEvent interface.
+
+    // 12) altKey: The altKey property in JavaScript is a read-only boolean value that returns true if the Alt key is pressed when a keyboard event occurs, and false otherwise. It is a property of the KeyboardEvent object, which is an event object that is created when a keyboard event occurs. The altKey property can be used to detect if the Alt key is pressed when a keyboard event occurs, such as when a key is pressed or released. This can be useful for implementing keyboard shortcuts or other functionality that is triggered when the Alt key is pressed.
+
+    // 13) ctrlKey: The ctrlKey property in JavaScript is a boolean value that indicates whether the Ctrl key was pressed when a keyboard event occurred. It is a read-only property that is available on all keyboard events. The ctrlKey property can be used to determine if the user is holding down the Ctrl key when they press another key. This can be useful for implementing keyboard shortcuts or other actions that should only be performed when the Ctrl key is held down.
+
+    // 14) shiftKey: The shiftKey property returns true if the shift key is pressed when a mouse event is triggered, otherwise it returns false. The altKey property is read-only.
+
+    // 15) keyCode : The keyCode property in JavaScript is a deprecated property that returns a numeric value representing the physical key that was pressed on the keyboard. It is no longer recommended to use the keyCode property, as it has been replaced by the key property, which provides more accurate and consistent results. The key property returns a string value representing the character that was pressed on the keyboard, taking into account the current keyboard layout and modifier keys. For example, if the user presses the "A" key while holding down the Shift key, the key property will return the string "A".
+
+    //=========================================================addEventListener==========================================================================
+
+    /*
+        The addEventListener() method attaches an event handler to an element.
+
+        Parameters:-
+        i) event:	Required.  
+                    The name of the event. 
+                    Do not use the "on" prefix. 
+                    Use "click" not "onclick".
+
+        ii) function:-	Required. 
+                        The function to run when the event occurs.
+
+        iii)useCapture	Optional (default = false).
+                        false - The handler is executed in the bubbling phase.
+                        true - The handler is executed in the capturing phase.
+    */
+
+    /*
+        What is “propagation”? 
+
+            Propagation refers to how events travel through the Document Object Model (DOM) tree. The DOM tree is the structure which contains parent/child/sibling elements in relation to each other. You can think of propagation as electricity running through a wire, until it reaches its destination. The event needs to pass through every node on the DOM until it reaches the end, or if it is forcibly stopped.
+    */
+
+    /*
+        Event Bubbling and Capturing:
+
+            Bubbling and Capturing are the two phases of propagation. In their simplest definitions, bubbling travels from the target to the root, and capturing travels from the root to the target. However, that doesn’t make much sense without first defining what a target and a root is.
+
+            The target is the DOM node on which you click, or trigger with any other event.
+
+            For example, a button with a click event would be the event target.
+
+            The root is the highest-level parent of the target. This is usually the document, which is a parent of the , which is a (possibly distant) parent of your target element.
+
+            Capturing is not used nearly as commonly as bubbling, so our examples will revolve around the bubbling phase. As an option though, EventTarget.addEventListener() has an optional third parameter - which takes its argument as a boolean - which controls the phase of the propagation. The parameter is called useCapture, and passing true will cause the listener to be on the capturing phase. The default is false, which will apply it to the bubbling phase.
+
+            Once you trigger the event, it will propagate up to the root, and it will trigger every single event handler which is associated with the same type. For example, if your button has a click event, during the bubbling phase, it will bubble up to the root, and trigger every click event along the way.
+
+            reference:
+            https://www.loginradius.com/blog/engineering/javascript-events-bubbling-capturing-and-propagation/#:~:text=Bubbling%20and%20Capturing%20are%20the,the%20root%20to%20the%20target.
+    */
+
+    document.getElementById('images').addEventListener('click', function (e) {
+        // console.log('you clicked on Images');
+
+    }, false)
+
+
+    document.getElementById('sourse').addEventListener('click', function (e) {
+        // console.log('you clicked on sourse');
+        e.stopPropagation()
+    }, false)
+
+
+    // comment this two before using removing image because it will interfere with the deleting process.. first image will not be deleted
+    /*
+        topPropagation():
+
+            this method in JavaScript prevents an event from propagating through the DOM tree. This means that the event will not be handled by any parent elements of the element that triggered the event.
+            The stopPropagation() method is often used to prevent events from bubbling up to the document object. For example, if you have a button inside a div, and you click on the button, the click event will bubble up to the div and be handled by any event handlers that are attached to the div. If you don't want the click event to bubble up to the div, you can call the stopPropagation() method on the event object in the button's click event handler.
+    */
+
+    document.getElementById('google').addEventListener('click', function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        // console.log('you clicked on google');
+    }, false)
+
+    /*
+        The preventDefault():
+            
+            method is a method of the Event object that prevents the default behavior of the event from happening. For example, this can be useful when:
+                i)Clicking on a "Submit" button, prevent it from submitting a form.
+                ii)Clicking on a link, prevent the link from following the URL.
+    */
+
+
+    //-------------------------------------------------------------------- Removing Elements ---------------------------------------------------------------------
+
+    /*
+
+    document.getElementById('images').addEventListener('click', function (e) {
+        console.log(e.target.parentNode)
+        let removeImg = e.target.parentNode // It will target the parent node of the image
+        // removeImg.remove(); //(first Method for removing) 
+
+
+        removeImg.parentNode.removeChild(
+            removeImg) //(second Method for removing) It will remove the parent node of the image b
+    })
+
+    */
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName);
+
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+
+            let removeImg = e.target.parentNode;
+            removeImg.remove();
+        }
+    });
+
+    /* TagName:
+        It is used to get the tag name of the element
+    */
+</script>
+
+</html>
