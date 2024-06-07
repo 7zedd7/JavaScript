@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Card</title>
+</head>
+<style>
+    .card {
+        margin: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .info {
+        border: 1px solid black;
+        padding: 20px;
+        
+
+    }
+
+    .container {
+        border: 2px solid black;
+        padding: 5px;
+    }
+    .I{
+        border: 3px solid black;
+        padding: 5px;
+    }
+    .II{
+        border: 4px solid black;
+        padding: 5px;
+    }
+    .III{
+        border: 5px solid black;
+        padding: 5px;
+    }
+    .IV{
+        border: 6px solid black;
+        padding: 5px;
+    }
+    .V{
+        border: 7px solid black;
+        padding: 5px;
+    }
+    .VI{
+        border: 8px solid black;
+        padding: 5px;
+    }
+    .VII{
+        border: 9px solid black;
+        padding: 5px;
+    }
+    .VIII{
+        border: 10px solid black;
+        padding: 5px;
+    }
+    .IX{
+        border: 11px solid black;
+        padding: 5px;
+    }
+    .X{
+        border: 12px solid black;
+        padding: 5px;
+    }
+    .XI{
+        border: 13px solid black;
+        padding: 5px;
+    }
+
+</style>
+
+<body>
+    <div class="card">
+        <div class="XI">
+            <div class="X">
+                <div class="IX">
+                    <div class="VIII">
+                        <div class="VII">
+                            <div class="VI">
+                                <div class="V">
+                                    <div class="IV">
+                                        <div class="III">
+                                            <div class="II">
+                                                <div class="I">
+                                                    <div class="container">
+                                                        <div class="info">
+                                                            <h1>Name: <span id="name"></span></h1>
+                                                            <p>Username: <span id="username"></span></p>
+                                                            <p>Followers: <span id="followers"></span></p>
+                                                            <p>Following: <span id="following"></span></p>
+                                                            <p>Location: <span id="location"></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", 'https://api.github.com/users/7zedd7')
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(xhr.responseText)
+            document.getElementById('name').textContent = data.name
+            document.getElementById('username').textContent = data.login
+            document.getElementById('followers').textContent = data.followers
+            document.getElementById('following').textContent = data.following
+            document.getElementById('location').textContent = data.location
+            // console.log(typeof data)
+            // console.log(data.name);
+            // console.log(data.login);
+            // console.log(data.followers)
+            // console.log(data.location);
+        }
+    }
+    xhr.send();
+</script>
+
+</html>
