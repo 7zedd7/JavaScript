@@ -25,8 +25,8 @@
     Using Object-Oriented Programming (OOP) in JavaScript enhances code modularity, reusability, and maintainability by organizing related properties and methods into classes and objects. It supports encapsulation, inheritance, and polymorphism, which streamline code management, improve readability, and allow for scalable and flexible design. OOP also facilitates the use of design patterns and aligns well with many popular JavaScript frameworks and libraries, making it easier to build complex, robust applications.
 
 ## parts of OOP
-Object literal 
 
+- Object literal 
 - Constructor function
 - Prototypes
 - Classes
