@@ -57,4 +57,4 @@ console.log(user1);
 
 */
 
-// Call , Apply , Bind 
+// Call , Apply , Bind "https://www.youtube.com/watch?v=SaWTn1ZNTpo" 
