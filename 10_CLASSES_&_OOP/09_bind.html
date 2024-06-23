@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor() {
+            this.library = "React";
+            this.server = "https://localhost:3000";
+        
+            //requirement
+
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this));
+        }
+
+        
+        handleClick(){
+            console.log("Button Clicked");
+            console.log(this.server);
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
+
+<!-- 
+    What is bind?
+        The bind method in JavaScript creates a new function that, when called, has its this keyword set to a specific value. This allows you to control what this refers to inside that function, regardless of how or where the function is called.
+
+    Why Use bind?
+        In JavaScript, the value of this depends on how a function is called. This can sometimes lead to unexpected behavior, especially in event handlers or callbacks. Using bind ensures that this has the correct reference, typically an instance of a class or a specific object. -->
+
