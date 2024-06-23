@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical_Scope & Closure </title>
+</head>
+
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    /* Lexical Scope:
+
+        Lexical scope in JavaScript refers to the principle that the visibility of variables and functions is determined by their position within the code structure. In simpler terms, lexical scope means that a variable defined outside a function can be accessible inside another function defined after it, because JavaScript functions are executed using the scope chain that was in effect when they were defined. This allows for nested functions to access variables and parameters of their outer functions
+
+        In simple terms child inner function can access outer function
+    */
+    // Example-1
+    function init() {
+        var name = "Mozilla";
+
+        function displayName() {
+            console.log(name);
+        }
+        displayName();
+    }
+    init();
+
+
+    // Example-2
+
+    function outer() {
+        let userName = 'Zeel';
+
+        function inner() {
+            console.log(userName);
+        }
+
+        function innerTwo() {
+            console.log(`${userName}Two`);
+        }
+        inner()
+        innerTwo()
+    }
+    outer();
+    // console.log("Too Outer", userName);
+
+
+
+    // Example of Closure
+
+    /*
+        Closure:-
+            Closure in JavaScript refers to the ability of a function to remember and access its lexical scope, even when that function is executed outside that scope. This means a function "closes over" its surrounding state, capturing variables and parameters from its outer function (or global scope) and retaining access to them. Closures are created every time a function is created, allowing for powerful programming patterns like maintaining state across multiple function calls, creating private variables, and implementing callbacks and asynchronous operations effectively. They play a crucial role in functional programming and are a fundamental concept in JavaScript.
+
+            In simpler terms, closure allows a function to reach out and grab variables from outside its own scope, keeping those variables alive even after the original function call has finished. This is useful for storing state, creating private variables, and controlling access to data in JavaScript programs.
+
+    */
+
+    function makeFunc() {
+        const name = "firefox";
+
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+</script>
+
+<script>
+    // document.getElementById('orange').onclick = function () {
+    //     document.body.style.backgroundColor = `orange`;
+    // }
+    // document.getElementById('green').onclick = function () {
+    //     document.body.style.backgroundColor = 'green';
+    // }
+
+    function clickHandler(color) {
+        // document.body.style.backgroundColor = ${color}
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+    document.getElementById('orange').onclick = clickHandler('orange');
+    document.getElementById('green').onclick = clickHandler('green');
+
+    /* 
+        Return Function:~
+
+            Returning a function (return function() {...}) creates a closure. This returned function retains access to the color variable even after clickHandler has finished executing. This is crucial because event handlers need to access color when they are eventually called upon a click event.
+    */
+
+    /*
+        Without Returning Function:
+
+        If you directly set document.body.style.backgroundColor = ${color}; without returning a function, the onclick assignment doesn't get a function to call later. Instead, it gets the result of executing document.body.style.backgroundColor = ${color}; immediately, which is not what you want for an event handler.
+    */
+</script>
+
+</html>
